@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoCKER</title>
+</head>
+<body>
+    <h1>TODOcker</h1>
+    <form method="POST">
+        <input type="text" title="task" name="task">
+        <button type="submit">SUBMIT</button>
+    </form>
+    <ul>
+        {% for t in tasks%}
+        <li>{{t.id}},{{t.task}}
+            <form action="{{url_for('delete',id=t.id)}}" method="post">
+                <button>DELETE</button>
+            </form>
+        </li>
+        {%endfor%}
+    </ul>
+</body>
+</html>
